@@ -12,20 +12,18 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'  # Or the version you need
+          node-version: '16'  # Or the version your project requires
 
       - name: Install dependencies
         run: npm install
 
-      - name: Decode Google Credentials and set environment variable
+      - name: Set Google Application Credentials directly
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
         run: |
-          echo $GOOGLE_CREDENTIALS | base64 --decode > /dev/null # Decodes but does not save
-          export GOOGLE_APPLICATION_CREDENTIALS="$(echo $GOOGLE_CREDENTIALS | base64 --decode)"
+          export GOOGLE_APPLICATION_CREDENTIALS_JSON=$(echo $GOOGLE_CREDENTIALS | base64 --decode)
 
       - name: Run BigQuery function
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: $GOOGLE_APPLICATION_CREDENTIALS
-        run: |
-          node path/to/your-function-file.js # Adjust the path as needed
+          GOOGLE_APPLICATION_CREDENTIALS_JSON: $GOOGLE_APPLICATION_CREDENTIALS_JSON
+        run: node path/to/your-function-file.js  # Replace with the actual path to your function
