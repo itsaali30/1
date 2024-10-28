@@ -1,28 +1,31 @@
-name: Deploy
+name: Run BigQuery Function
 
 on: [push]
 
 jobs:
-  deploy:
+  run-query:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Set up Node
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '16'  # Or the version you need
 
       - name: Install dependencies
         run: npm install
 
-      - name: Set GOOGLE_APPLICATION_CREDENTIALS
+      - name: Decode Google Credentials and set environment variable
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
         run: |
-          echo $GOOGLE_APPLICATION_CREDENTIALS | base64 --decode > ./keyfile.json
-          # Now the keyfile is saved and accessible as ./keyfile.json
+          echo $GOOGLE_CREDENTIALS | base64 --decode > /dev/null # Decodes but does not save
+          export GOOGLE_APPLICATION_CREDENTIALS="$(echo $GOOGLE_CREDENTIALS | base64 --decode)"
 
-      - name: Run your app
-        run: npm run build  # Or your deployment command
+      - name: Run BigQuery function
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: $GOOGLE_APPLICATION_CREDENTIALS
+        run: |
+          node path/to/your-function-file.js # Adjust the path as needed
