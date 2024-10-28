@@ -1,7 +1,21 @@
 const { BigQuery } = require('@google-cloud/bigquery');
 
+// Check if the environment variable is set
+if (!process.env.BIGQUERY_CREDENTIALS) {
+    console.error('BIGQUERY_CREDENTIALS environment variable is not set');
+    process.exit(1);
+}
+
+let credentials;
+try {
+    credentials = JSON.parse(process.env.BIGQUERY_CREDENTIALS);
+} catch (error) {
+    console.error('Error parsing BIGQUERY_CREDENTIALS:', error);
+    process.exit(1);
+}
+
 const bigquery = new BigQuery({
-    credentials: JSON.parse(process.env.BIGQUERY_CREDENTIALS),
+    credentials,
 });
 
 const projectId = 'my-vue-app-435611';
