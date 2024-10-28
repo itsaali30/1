@@ -1,7 +1,7 @@
 const { BigQuery } = require('@google-cloud/bigquery');
 
 const bigquery = new BigQuery({
-    keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS || './keyfile.json', // Ensure this path is correct
+    keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS || 'keyfile.json', // Ensure this path is correct
 });
 
 const projectId = 'my-vue-app-435611';
