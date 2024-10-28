@@ -1,7 +1,7 @@
 const { BigQuery } = require('@google-cloud/bigquery');
 
 const bigquery = new BigQuery({
-    keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS || './keyfile.json', // Ensure this path is correct
+    credentials: JSON.parse(process.env.BIGQUERY_CREDENTIALS),
 });
 
 const projectId = 'my-vue-app-435611';
@@ -14,7 +14,7 @@ exports.handler = async (event) => {
         console.log('Running query:', query);
         const options = {
             query: query,
-            location: 'US', // Update based on your dataset location
+            location: 'US',
         };
 
         const [rows] = await bigquery.query(options);
@@ -24,9 +24,6 @@ exports.handler = async (event) => {
         };
     } catch (error) {
         console.error('Error fetching data from BigQuery:', error);
-        if (error.response) {
-            console.error('Error details:', error.response.data);
-        }
         return {
             statusCode: 500,
             body: JSON.stringify({ error: error.message }),
