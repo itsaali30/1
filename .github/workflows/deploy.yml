@@ -26,4 +26,4 @@ jobs:
       - name: Run BigQuery function
         env:
           GOOGLE_APPLICATION_CREDENTIALS_JSON: $GOOGLE_APPLICATION_CREDENTIALS_JSON
-        run: node 1/netlify/functions/get.js  # Replace with the actual path to your function
+        run: node 1/netlify/functions/get2.js  # Replace with the actual path to your function
