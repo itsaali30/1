@@ -20,11 +20,11 @@ jobs:
       - name: Install Netlify CLI
         run: npm install -g netlify-cli
 
-      - name: Set Google Application Credentials
+       - name: Set Google Application Credentials
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
         run: |
-          echo $GOOGLE_CREDENTIALS | base64 --decode > google-credentials.json
+          echo "$GOOGLE_CREDENTIALS" | base64 -d > google-credentials.json || echo "$GOOGLE_CREDENTIALS" | base64 --decode > google-credentials.json
           export GOOGLE_APPLICATION_CREDENTIALS=$PWD/google-credentials.json
 
       - name: Run BigQuery function
