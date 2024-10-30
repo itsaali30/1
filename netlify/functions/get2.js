@@ -1,7 +1,21 @@
 const { BigQuery } = require('@google-cloud/bigquery');
 
+// Check if the environment variable is set
+if (!process.env.GOOGLE_CREDENTIALS) {
+    console.error('GOOGLE_CREDENTIALS environment variable is not set');
+    process.exit(1);
+}
+
+let credentials;
+try {
+    credentials = JSON.parse(Buffer.from(process.env.GOOGLE_CREDENTIALS, 'base64').toString('utf-8'));
+} catch (error) {
+    console.error('Error parsing GOOGLE_CREDENTIALS:', error);
+    process.exit(1);
+}
+
 const bigquery = new BigQuery({
-    keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS || 'keyfile.json', // Ensure this path is correct
+    credentials,
 });
 
 const projectId = 'my-vue-app-435611';
@@ -14,7 +28,7 @@ exports.handler = async (event) => {
         console.log('Running query:', query);
         const options = {
             query: query,
-            location: 'US', // Update based on your dataset location
+            location: 'US',
         };
 
         const [rows] = await bigquery.query(options);
@@ -24,9 +38,6 @@ exports.handler = async (event) => {
         };
     } catch (error) {
         console.error('Error fetching data from BigQuery:', error);
-        if (error.response) {
-            console.error('Error details:', error.response.data);
-        }
         return {
             statusCode: 500,
             body: JSON.stringify({ error: error.message }),
