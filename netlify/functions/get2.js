@@ -8,7 +8,8 @@ if (!process.env.GOOGLE_CREDENTIALS) {
 
 let credentials;
 try {
-    credentials = JSON.parse(Buffer.from(process.env.GOOGLE_CREDENTIALS).toString('utf-8'));
+    // Decode Base64-encoded credentials
+    credentials = JSON.parse(Buffer.from(process.env.GOOGLE_CREDENTIALS, 'base64').toString('utf-8'));
 } catch (error) {
     console.error('Error parsing GOOGLE_CREDENTIALS:', error);
     process.exit(1);
@@ -18,9 +19,9 @@ const bigquery = new BigQuery({
     credentials,
 });
 
-const projectId = 'my-vue-app-435611';
-const datasetId = 'Alifmart';
-const tableId = 'Con';
+const projectId = 'my-vue-app-435611'; // Replace with your project ID
+const datasetId = 'Alifmart';           // Replace with your dataset ID
+const tableId = 'Con';                   // Replace with your table ID
 
 exports.handler = async (event) => {
     try {
