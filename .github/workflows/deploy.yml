@@ -1,9 +1,9 @@
-name: Run BigQuery Function
+name: Deploy Netlify BigQuery Function
 
 on: [push]
 
 jobs:
-  run-query:
+  deploy-function:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -17,7 +17,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-
       - name: Set Google Application Credentials
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
@@ -25,7 +24,12 @@ jobs:
           echo "$GOOGLE_CREDENTIALS" | base64 -d > google-credentials.json || echo "$GOOGLE_CREDENTIALS" | base64 --decode > google-credentials.json
           export GOOGLE_APPLICATION_CREDENTIALS=$PWD/google-credentials.json
 
-      - name: Run BigQuery function
+      - name: Run Netlify function (optional for testing)
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: $GOOGLE_APPLICATION_CREDENTIALS
-        run: node netlify/functions/get2.js  # Ensure this path is correct
+          GOOGLE_APPLICATION_CREDENTIALS: $PWD/google-credentials.json
+        run: node netlify/functions/getData.js  # Use this to test the function locally
+
+      - name: Deploy to Netlify
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: $PWD/google-credentials.json
+        run: netlify deploy --dir=netlify/functions  # Ensure you have the correct path for deployment
