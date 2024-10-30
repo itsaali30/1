@@ -8,7 +8,7 @@ if (!process.env.GOOGLE_CREDENTIALS) {
 
 let credentials;
 try {
-    credentials = JSON.parse(Buffer.from(process.env.GOOGLE_CREDENTIALS, 'base64').toString('utf-8'));
+    credentials = JSON.parse(Buffer.from(process.env.GOOGLE_CREDENTIALS).toString('utf-8'));
 } catch (error) {
     console.error('Error parsing GOOGLE_CREDENTIALS:', error);
     process.exit(1);
