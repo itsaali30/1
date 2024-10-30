@@ -1,16 +1,17 @@
 const { BigQuery } = require('@google-cloud/bigquery');
 
 // Check if the environment variable is set
-if (!process.env.BIGQUERY_CREDENTIALS) {
-    console.error('BIGQUERY_CREDENTIALS environment variable is not set');
+if (!process.env.GOOGLE_CREDENTIALS) {
+    console.error('GOOGLE_CREDENTIALS environment variable is not set');
     process.exit(1);
 }
 
 let credentials;
 try {
-    credentials = JSON.parse(process.env.BIGQUERY_CREDENTIALS);
+    // Decode the Base64-encoded Google credentials
+    credentials = JSON.parse(Buffer.from(process.env.GOOGLE_CREDENTIALS, 'base64').toString('utf-8'));
 } catch (error) {
-    console.error('Error parsing BIGQUERY_CREDENTIALS:', error);
+    console.error('Error parsing GOOGLE_CREDENTIALS:', error);
     process.exit(1);
 }
 
