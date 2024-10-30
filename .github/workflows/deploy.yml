@@ -27,7 +27,7 @@ jobs:
       - name: Run Netlify function (optional for testing)
         env:
           GOOGLE_APPLICATION_CREDENTIALS: $PWD/google-credentials.json
-        run: node netlify/functions/getData.js  # Use this to test the function locally
+        run: node netlify/functions/get2.js  # Use this to test the function locally
 
       - name: Deploy to Netlify
         env:
