@@ -16,6 +16,8 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        - name: Install dependencies netlify
+        run: npm install netlify-cli
 
       - name: Set Google Application Credentials directly
         env:
