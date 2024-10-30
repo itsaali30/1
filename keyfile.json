@@ -1,13 +1,1 @@
-{
-  "type": "service_account",
-  "project_id": "my-vue-app-435611",
-  "private_key_id": "f1440a0451e6a093b2777fbe014546853365000f",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCrUH8I9NGC5B6d\nA7oniUduYQyD/70FuXx2vCGfnXYfEa2XGKt3aWtxut/uZu1miNg1KY3QyIyzI04H\nfidBCZ0+J6yegRFNKuXb8a16ZPtWRP2g4rAEkb4+Z+QdDwJ60vq41PVwILTkeVIz\nvjiZOzKInhnQrGlU6J+K2T1PZuPH56yBIyOFfPBiMDVj9gA6h4EkvMfXihpqIn5l\nsnL2N418mPotuYVI7hkxeZqgGPW/YvgBdug2Cg1cpJVCmmY6pXh4MwBYLaX08tt9\nsIIT4ac0KsXQMC7kWRfMgOphHB/n7MsQyceIWVOUFMb8POGw+55XROoaD1cJyXQv\nX5s8bvyNAgMBAAECggEADx+xHKpNoLTg2v226RdJHhPP62CgCv8ACj9mPIAbKyJV\nZS8WsW5gv46UMajBMTnIKeam5WqpuTAsYE72dNsTbab0/0fnrhypDuIRbZUNTJAU\npVJoivlkMSrczDqZ/nEyadorEiC2YivaYkUFxslKFx4rVe0Snh4B5QZz+iwxfwvu\nHdMoQODp1y5hT6H/dr7mfEDWesEDJtwNY7r9NpnvN4Hru78e8cFyYxdUAVo9E3Xu\nDuBzVK9bO+MTcR63gVmPu+NEd1/l4hCbucU5vBkUSS6EDHI40t3Okr85gD3fRDvX\n98xK8m/a7uim4Ec8ZpFD00KG6/TTafOoDs+HHD8TJQKBgQDf96QVKAfi+aqovp0j\nI0rGc4ptc1qVawL8ROo5bQOBtGa2M+nEzzWx7os9VvDEKmiIPZlKJrjNZ60hICVQ\nViYS/cNCVGtHAaaj8vnvIdJRwVrURax/BGLz9aGEUkAf6KoIr4XIIhbZOS+KE/pr\nS0rfetT8810i/le6AawYXfEv8wKBgQDD0QRtvvD8lxMl/duFhaIARYddKuDd5SBL\nMoIvDX8CSyW/ZW1nYbTMW4A+T+L1DNvPK7iWiCQbQBl64YoiYdFWsc31YkUjw5AK\n5PNGDxgmyRpuVbcmP0WPJNwsIenXdkBnv3TfZ+fUEcmubyKW0w4TPzYHNMclN4p5\nzrxCy1bBfwKBgQCCE8MRoolKEzVCAksjcEjqj4pzXQ7cPyWhvKjIp37k4xDQe8Am\n1S3bZK8r9gWp+PNzRUt1XJ3ydmeAGLpzOUWtvAKe0Ibp25ScHe95KoyLfSAyrzCr\nKLIL/LpNLrQdlDTFDKRHgzz/9o2cxVOo4zbeKunu661JOK1c08HO+SiubwKBgAPR\niaKSPKTQVWFCSAuchYI32OHqOiRZmX2d6If+XWGwEXZgBfgkIaBykFemuyhILekm\nUx0sXnfhkh2hVE5DVg+4u+lzFyIRaDeuK0hMdw4akddg+IdYaITYFSsPJj47Yhoj\n06WfoxexmRs7s5L5XqblbqpJTzDcmmixrV4oFPMFAoGAHefjiwO9FrOSClgg6zIX\nItQ8rj27yyw75VWhDDaMlwoxJBauNvTZZ67Yl6UhzZCYe6iRkQp/6mQiJ9sV61rY\n7O5loNdNRF9999YY9X1L4Y00u40KhvHtUUCNqU4mzcsi0SQyadoHGNrgKss8Ybgf\nEufFN6slLH65qal/TEeeutU=\n-----END PRIVATE KEY-----\n",
-  "client_email": "alifmart@my-vue-app-435611.iam.gserviceaccount.com",
-  "client_id": "114216320032295704568",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://oauth2.googleapis.com/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/alifmart%40my-vue-app-435611.iam.gserviceaccount.com",
-  "universe_domain": "googleapis.com"
-}
+
