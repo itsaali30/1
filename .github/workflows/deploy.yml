@@ -30,4 +30,4 @@ jobs:
       - name: Deploy to Netlify
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
-        run:netlify deploy --prod --dir=netlify/functions # Ensure you have the correct path for deployment
+        run: netlify deploy --prod --dir=netlify/functions # Ensure you have the correct path for deployment
