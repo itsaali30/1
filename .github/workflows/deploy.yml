@@ -25,7 +25,7 @@ jobs:
       - name: Run Netlify function (optional for testing)
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
-        run: node netlify/functions/getData.js  # Use this to test the function locally
+        run: node netlify/functions/getdata.js  # Use this to test the function locally
 
       - name: Deploy to Netlify
         env:
